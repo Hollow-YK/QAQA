@@ -4,14 +4,14 @@
 !include "nsDialogs.nsh";调用nsDialogs以创建自定义页面
 
 #名称
-Name "QAQA V1.0 Installer"
+Name "QAQA V0.0.1 Installer"
 
-OutFile "QAQA_V1.0_installer.exe";安装包输出
+OutFile "QAQA_V0.0.1_installer.exe";安装包输出
 InstallDir "$PROGRAMFILES\Hollow\QAQA";默认安装路径
 
 #常量定义
 !define INSTALLATIONNAME "QAQA"
-!define PROGRAMFROM "D:\OneDrive - MSFT\WZJ\河石大\BOF动漫社\2025迎新\QAQA\QAQA";未打包文件路径
+!define PROGRAMFROM "D:\QAQA";未打包文件路径
 
 #安装页面
 #许可证页面
@@ -49,7 +49,7 @@ CreateFont $2 "黑体" 14 700     ; 创建加粗字体
 SendMessage $1 ${WM_SETFONT} $2 1   ; 应用字体
 
 # 创建正文文字
-${NSD_CreateLabel} 0 46 100% 80u "本工具用于BOF动漫社2025迎新晚会，因懒得写PPT而设计。$\r$\n作者：域空Hollow$\r$\n注意！$\r$\n本工具仅做辅助使用，不保证没有Bug。$\r$\n本工具完全免费。"
+${NSD_CreateLabel} 0 46 100% 80u "没写完，等着再说"
 Pop $1
 SetCtlColors $1 0x000000 0xF0F0F0  ; 黑字灰底
 CreateFont $3 "楷体" 12 400     ; 创建常规字体
