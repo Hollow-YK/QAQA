@@ -1,0 +1,48 @@
+
+# Visual Studio
+.vs/
+windows/.vs/
+*.ipch
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+flutter_build/
+*.dill
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+
+# iOS
+ios/.generated/
+ios/Flutter/App.framework/
+ios/Flutter/Flutter.framework/
+ios/Pods/
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Windows
+windows/out/
+windows/runner/*.pdb
+windows/runner/*.ilk
+
+# 通用构建文件
+*.pdb
+*.dll
+*.so
+*.o
+*.a
+*.exe
+.DS_Store
+Thumbs.db
+EOF
