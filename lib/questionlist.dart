@@ -48,33 +48,10 @@ class _QuestionListState extends State<QuestionList> {
         }).toList();
         isLoading = false;
       });
-
-      // 如果没有CSV文件，创建示例文件
-      if (csvFiles.isEmpty) {
-        await _createSampleData();
-        _loadCSVFiles(); // 重新加载文件列表
-      }
     } catch (e) {
       setState(() {
         isLoading = false;
         errorMessage = '加载文件列表失败: $e';
-      });
-    }
-  }
-
-  Future<void> _createSampleData() async {
-    try {
-      final sampleFile = File('${widget.dataDirPath}\\举个例子.csv');
-      const sampleData = '''问题1,答案1
-问题2,答案2
-问题3,答案3
-这是一个示例问题,这是对应的示例答案
-图片示例问题,001.png''';
-      
-      await sampleFile.writeAsString(sampleData);
-    } catch (e) {
-      setState(() {
-        errorMessage = '创建示例文件失败: $e';
       });
     }
   }
@@ -103,7 +80,7 @@ class _QuestionListState extends State<QuestionList> {
           : errorMessage.isNotEmpty
               ? Center(child: Text(errorMessage))
               : csvFiles.isEmpty
-                  ? const Center(child: Text('没有找到题库文件'))
+                  ? const Center(child: Text('没有找到题库，先导入一个吧！'))
                   : ListView.builder(
                       itemCount: csvFiles.length,
                       itemBuilder: (context, index) {

@@ -11,11 +11,12 @@ InstallDir "$PROGRAMFILES\Hollow\QAQA";默认安装路径
 
 #常量定义
 !define INSTALLATIONNAME "QAQA"
-!define PROGRAMFROM "D:\QAQA";未打包文件路径
+!define PROGRAMFROM "E:\Flutter\Code\Hollow\qaqa\build\windows\x64\runner\Release";未打包文件路径
+!define EXAMPLEFROM "E:\Flutter\Code\Hollow\qaqa\examplequestion";示例问题路径
 
 #安装页面
 #许可证页面
-#!insertmacro MUI_PAGE_LICENSE "license.rtf"
+!insertmacro MUI_PAGE_LICENSE "LICENSE"
 #公告页面
 Page custom ShowNotice
 #安装路径选择页面
@@ -49,7 +50,7 @@ CreateFont $2 "黑体" 14 700     ; 创建加粗字体
 SendMessage $1 ${WM_SETFONT} $2 1   ; 应用字体
 
 # 创建正文文字
-${NSD_CreateLabel} 0 46 100% 80u "没写完，等着再说"
+${NSD_CreateLabel} 0 46 100% 80u "项目地址：https://github.com/Hollow-YK/QAQA$\r$\n作者：域空Hollow$\r$\n安装程序通过NSIS进行打包。"
 Pop $1
 SetCtlColors $1 0x000000 0xF0F0F0  ; 黑字灰底
 CreateFont $3 "楷体" 12 400     ; 创建常规字体
@@ -71,9 +72,9 @@ Section "主程序（必选）" SEC_MAIN
 	CreateDirectory "$SMPROGRAMS\QAQA"
 SectionEnd
 SectionGroup "数据文件" GRP_DATA
-	Section "问题数据" SEC_QUESTIONSCSV
-		SetOutPath "$APPDATA\Hollow\BOF"
-		File /r "${PROGRAMFROM}\QAQA"
+	Section "示例题库" SEC_QUESTIONSCSV
+		SetOutPath "$APPDATA\Hollow\QAQA"
+		File /r "${EXAMPLEFROM}\*"
 	SectionEnd
 SectionGroupEnd
 SectionGroup "创建快捷方式" GRP_SHORTCUT
@@ -93,12 +94,12 @@ SectionGroupEnd
 #可选组件
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 !insertmacro MUI_DESCRIPTION_TEXT ${SEC_MAIN} "安装程序的主文件，此选项必须安装。"
-!insertmacro MUI_DESCRIPTION_TEXT ${GRP_DATA} "选择需要安装的数据文件，此选项必须安装至少一项。"
-	!insertmacro MUI_DESCRIPTION_TEXT ${SEC_QUESTIONSCSV} "安装问题与答案数据（推荐）"
+!insertmacro MUI_DESCRIPTION_TEXT ${GRP_DATA} "选择需要安装的数据文件。"
+	!insertmacro MUI_DESCRIPTION_TEXT ${SEC_QUESTIONSCSV} "安装示例问题与答案数据（推荐）"
 !insertmacro MUI_DESCRIPTION_TEXT ${GRP_SHORTCUT} "创建快捷方式，方便快速启动程序。"
-	!insertmacro MUI_DESCRIPTION_TEXT ${GRP_STARTMENUSHORTCUT} "创建开始菜单快捷方式，方便快速启动和卸载程序。除非你知道你在做什么，否则务必勾选此选项。"
-		!insertmacro MUI_DESCRIPTION_TEXT ${SEC_STARTMENUSHORTCUT} "在桌面创建快捷方式，方便快速启动程序。除非你知道你在做什么，否则务必勾选此选项。"
-		!insertmacro MUI_DESCRIPTION_TEXT ${SEC_STARTMENUUNINSTALLSHORTCUT} "在桌面创建快捷方式，方便快速卸载程序。除非你知道你在做什么，否则务必勾选此选项。"
+	!insertmacro MUI_DESCRIPTION_TEXT ${GRP_STARTMENUSHORTCUT} "创建开始菜单快捷方式，方便快速启动和卸载程序。除非你知道你在做什么，否则请勾选此选项。"
+		!insertmacro MUI_DESCRIPTION_TEXT ${SEC_STARTMENUSHORTCUT} "在桌面创建快捷方式，方便快速启动程序。除非你知道你在做什么，否则请勾选此选项。"
+		!insertmacro MUI_DESCRIPTION_TEXT ${SEC_STARTMENUUNINSTALLSHORTCUT} "在桌面创建快捷方式，方便快速卸载程序。除非你知道你在做什么，否则请勾选此选项。"
 	!insertmacro MUI_DESCRIPTION_TEXT ${SEC_DESKTOPSHORTCUT} "在桌面创建快捷方式，方便快速启动程序。"
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
