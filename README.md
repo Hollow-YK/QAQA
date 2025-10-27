@@ -19,13 +19,13 @@
 
 <!-- markdownlint-restore -->
 
-基于[云湖官方Python SDK](https://github.com/yhchat/bot-python-sdk/)与[mcstatus库](https://github.com/py-mine/mcstatus/)。
-
 </div>
 
 ## 下载与安装
 
 请前往[Release](https://github.com/Hollow-YK/QAQA/releases)下载最新安装包并安装。
+
+建议在安装时选择“安装示例题库”。
 
 ## 功能
 
